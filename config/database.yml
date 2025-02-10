@@ -16,12 +16,12 @@ production:
   cache:
     <<: *default
     migrations_paths: db/cache_migrate
-    url: <%= URI(ENV["DATABASE_URL"]).tap { |u| u.path += "_cache" } %>
+    url: <%= ENV["DATABASE_URL"] && URI(ENV["DATABASE_URL"]).tap { |u| u.path += "_cache" } %>
   queue:
     <<: *default
     migrations_paths: db/queue_migrate
-    url: <%= URI(ENV["DATABASE_URL"]).tap { |u| u.path += "_queue" } %>
+    url: <%= ENV["DATABASE_URL"] && URI(ENV["DATABASE_URL"]).tap { |u| u.path += "_queue" } %>
   cable:
     <<: *default
     migrations_paths: db/cable_migrate
-    url: <%= URI(ENV["DATABASE_URL"]).tap { |u| u.path += "_cable" } %>
+    url: <%= ENV["DATABASE_URL"] && URI(ENV["DATABASE_URL"]).tap { |u| u.path += "_cable" } %>
