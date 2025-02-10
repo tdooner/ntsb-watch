@@ -1,4 +1,4 @@
-class DailyDownloader
+class DailySync
   def initialize(date, logger = $stdout)
     @date = date
     @client = CarolApiClient.new
@@ -21,8 +21,13 @@ class DailyDownloader
     @client.investigations(start_date, end_date).each_with_index do |json, i|
       investigation = Investigation.find_or_initialize_from_json(json)
       counts[:total] += 1
-      counts[:updated] += 1 if investigation.persisted? && investigation.changed?
       counts[:created] += 1 if investigation.new_record?
+
+      if investigation.persisted? && investigation.changed?
+        DailySyncDifference
+          .create_from_changed_investigation(@date, investigation)
+        counts[:updated] += 1
+      end
 
       investigation.save
       @logger.puts "  Processed #{counts[:total]} records. (Created: #{counts[:created]}, Updated: #{counts[:updated]})" if counts[:total] % 100 == 0

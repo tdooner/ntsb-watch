@@ -1,4 +1,6 @@
 class Investigation < ApplicationRecord
+  has_many :daily_sync_differences
+
   def self.find_or_initialize_from_json(json)
     find_or_initialize_by(ntsb_mkey: json["cm_mkey"])
       .assign_ntsb_json_attributes(json)

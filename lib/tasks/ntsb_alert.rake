@@ -1,5 +1,5 @@
 namespace :ntsb_alert do
-  task download_daily: :environment do
-    DailyDownloader.new(Date.today).download_all
+  task daily_sync: :environment do
+    DailySync.new(Date.today).download_all
   end
 end

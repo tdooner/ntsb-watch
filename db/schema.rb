@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_10_002846) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_10_013250) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "daily_sync_differences", force: :cascade do |t|
+    t.bigint "investigation_id", null: false
+    t.date "date"
+    t.jsonb "differences"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["investigation_id"], name: "index_daily_sync_differences_on_investigation_id"
+  end
 
   create_table "investigations", force: :cascade do |t|
     t.integer "ntsb_mkey", null: false
@@ -24,4 +33,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_10_002846) do
     t.datetime "updated_at", null: false
     t.index ["ntsb_mkey"], name: "index_investigations_on_ntsb_mkey", unique: true
   end
+
+  add_foreign_key "daily_sync_differences", "investigations"
 end
