@@ -13,6 +13,7 @@ production:
   primary:
     <<: *default
     database: ntsb_alerts
+    url: <%= ENV["DATABASE_URL"] %>
   cache:
     <<: *default
     database: ntsb_alerts
