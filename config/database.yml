@@ -12,17 +12,16 @@ test:
 production:
   primary:
     <<: *default
-    database: ntsb_alerts
     url: <%= ENV["DATABASE_URL"] %>
   cache:
     <<: *default
-    database: ntsb_alerts
     migrations_paths: db/cache_migrate
+    url: <%= URI(ENV["DATABASE_URL"]).tap { |u| u.path += "_cache" } %>
   queue:
     <<: *default
-    database: ntsb_alerts
     migrations_paths: db/queue_migrate
+    url: <%= URI(ENV["DATABASE_URL"]).tap { |u| u.path += "_queue" } %>
   cable:
     <<: *default
-    database: ntsb_alerts
     migrations_paths: db/cable_migrate
+    url: <%= URI(ENV["DATABASE_URL"]).tap { |u| u.path += "_cable" } %>
