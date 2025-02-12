@@ -5,7 +5,7 @@ class DailySyncDifference < ApplicationRecord
     differences = investigation.changes.dup
 
     if differences["contents_raw"]
-      differences["contents_raw"] = JsonDiff.diff(differences["contents_raw"])
+      differences["contents_raw"] = JsonDiff.diff(*differences["contents_raw"])
     end
 
     create(
