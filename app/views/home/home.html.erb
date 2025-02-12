@@ -1,0 +1,20 @@
+<h1>Most Recent Final Reports:</h1>
+<ul>
+  <% @recent_final_reports.each do |investigation| %>
+    <li><%= investigation.to_html %></li>
+  <% end %>
+</ul>
+
+<h1>Most Recent Preliminary Reports:</h1>
+<ul>
+  <% @recent_prelim_reports.each do |investigation| %>
+    <li><%= investigation.to_html %></li>
+  <% end %>
+</ul>
+
+<h1>Newest Investigations:</h1>
+<ul>
+  <% @investigations.each do |investigation| %>
+    <li><%= investigation.to_html %></li>
+  <% end %>
+</ul>

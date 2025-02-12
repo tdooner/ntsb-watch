@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euo pipefail
+
+export PATH=/usr/local/Cellar/postgresql@16/16.6/bin:$PATH
+
+exec pg_dump $PRODUCTION_DATABASE_URL -Fc | pv | pg_restore --clean -d ntsb-alerts_development
