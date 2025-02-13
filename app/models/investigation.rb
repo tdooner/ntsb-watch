@@ -6,9 +6,6 @@ class Investigation < ApplicationRecord
       .assign_ntsb_json_attributes(json)
   end
 
-  def to_html
-  end
-
   def assign_ntsb_json_attributes(json)
     assign_attributes(
       ntsb_mkey: json["cm_mkey"],

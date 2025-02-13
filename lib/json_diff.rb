@@ -18,6 +18,11 @@ class JsonDiff
           differences[full_key] = [ old[key], new[key] ]
         end
       end
+    elsif old.is_a?(Array) && new.is_a?(Array)
+      [ old.length, new.length ].max.times do |i|
+        full_key = path ? "#{path}[#{i}]" : "[#{i}]"
+        compare(old[i], new[i], full_key, differences)
+      end
     else
       differences[path] = [ old, new ] if old != new
     end
