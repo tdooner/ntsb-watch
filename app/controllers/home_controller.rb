@@ -11,5 +11,6 @@ class HomeController < ApplicationController
       .limit(10)
 
     @investigations = Investigation.order(created_at: :desc).limit(10)
+    @diffs = DailySyncDifference.order(created_at: :desc).limit(20)
   end
 end

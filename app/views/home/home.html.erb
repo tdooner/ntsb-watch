@@ -6,3 +6,9 @@
 
 <h1>Newest Investigations:</h1>
 <%= render collection: @investigations, partial: "investigation" %>
+
+<h1>Latest Diffs:</h1>
+<ul>
+<% @diffs.each do |diff| %>
+  <li><%= diff.differences %></li>
+<% end %>
