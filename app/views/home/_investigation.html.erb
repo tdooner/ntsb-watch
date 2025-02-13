@@ -1,0 +1,46 @@
+<% json = investigation.contents_raw %>
+<% vehicles = Array(json["cm_vehicles"]) %>
+<%
+  title = vehicles.map { |v| v["registrationNumber"] }.join(", ")
+%>
+
+<h3><%= title %></h3>
+
+<ul>
+
+  <li>
+    <strong>Location:</strong>
+    <%=
+      [
+        json["cm_city"],
+        json["cm_state"],
+        json["cm_country"]
+      ].compact.join(", ")
+    %>
+  </li>
+
+  <li>
+    <strong>Date:</strong>
+    <%= DateTime.parse(json["cm_eventDate"]).strftime("%m/%d/%Y") %>
+  </li>
+
+  <li>
+    <strong>Details:</strong>
+    <% vehicles.each do |vehicle| %>
+      <%= vehicle["registrationNumber"] %> - 
+      <% if (first_event = Array(vehicle["cm_events"]).first) %>
+        <%= first_event["cicttEventSOEGroup"] %>
+      <% end %> /
+      <% if (injuries = Array(vehicle["cm_injuries"]).first) %>
+        <%= injuries["cm_crew_Fatal"] %> Fatal, <%= injuries["cm_crew_Serious"] %> Serious, <%= injuries["cm_crew_None"] %> None
+      <% end %>
+      <br>
+    <% end %>
+  </li>
+
+  <% if investigation.most_recent_report_type.present? %>
+    <li>
+      <strong>Report URL:</strong> <a href="https://data.ntsb.gov/carol-repgen/api/Aviation/ReportMain/GenerateNewestReport/<%= json["cm_mkey"] %>/pdf" target="_blank" rel="noopener noreferer">Download Latest Report</a> (Dated <%= json["cm_recentReportPublishDate"] %>)
+    </li>
+  <% end %>
+</ul>
