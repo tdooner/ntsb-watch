@@ -40,7 +40,8 @@
 
   <% if investigation.most_recent_report_type.present? %>
     <li>
-      <strong>Report URL:</strong> <a href="https://data.ntsb.gov/carol-repgen/api/Aviation/ReportMain/GenerateNewestReport/<%= json["cm_mkey"] %>/pdf" target="_blank" rel="noopener noreferer">Download Latest Report</a> (Dated <%= json["cm_recentReportPublishDate"] %>)
+      <strong>Report URL:</strong>
+      <a href="<%= investigation.report_url %>" target="_blank" rel="noopener noreferer">Download <%= investigation.most_recent_report_type %> Report</a> (Dated <%= json["cm_recentReportPublishDate"] %>)
     </li>
   <% end %>
 </ul>

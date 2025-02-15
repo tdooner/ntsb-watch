@@ -16,4 +16,12 @@ class Investigation < ApplicationRecord
     )
     self
   end
+
+  def report_url
+    "https://data.ntsb.gov/carol-repgen/api/Aviation/ReportMain/GenerateNewestReport/#{ntsb_mkey}/pdf"
+  end
+
+  def recent_report_publish_date
+    DateTime.parse(contents_raw["cm_recentReportPublishDate"])
+  end
 end

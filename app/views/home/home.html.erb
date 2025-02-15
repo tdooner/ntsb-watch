@@ -1,8 +1,9 @@
-<h1>Most Recent Final Reports:</h1>
-<%= render collection: @recent_final_reports, partial: "investigation" %>
-
-<h1>Most Recent Preliminary Reports:</h1>
-<%= render collection: @recent_prelim_reports, partial: "investigation" %>
+<h1>Most Recent Reports:</h1>
+<% reports_by_day = @recent_reports.group_by { |r| r.recent_report_publish_date.to_date } %>
+<% reports_by_day.each do |day, reports| %>
+  <h2><%= day.strftime("%A, %B %e, %Y") %></h2>
+  <%= render collection: reports, partial: "investigation" %>
+<% end %>
 
 <h1>Newest Investigations:</h1>
 <%= render collection: @investigations, partial: "investigation" %>
