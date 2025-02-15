@@ -11,5 +11,5 @@
 <h1>Latest Diffs:</h1>
 <ul>
 <% @diffs.each do |diff| %>
-  <li><%= diff.differences %></li>
+  <li><%= diff.date %>: <%= diff.differences %></li>
 <% end %>
