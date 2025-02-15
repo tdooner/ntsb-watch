@@ -14,7 +14,7 @@ class JsonDiff
         full_key = path ? "#{path}.#{key}" : key.to_s
         if old.key?(key) && new.key?(key)
           compare(old[key], new[key], full_key, differences)
-        else
+        elsif new.key?(key) && !new[key].nil?
           differences[full_key] = [ old[key], new[key] ]
         end
       end
