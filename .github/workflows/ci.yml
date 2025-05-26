@@ -53,10 +53,22 @@ jobs:
       - name: Lint code for consistent style
         run: bin/rubocop -f github
 
-  test:
+  rspec:
     runs-on: ubuntu-latest
 
-    # services:
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_DB: ntsb-alerts_test
+          POSTGRES_PASSWORD: password
+        options:
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
     #  redis:
     #    image: redis
     #    ports:
@@ -75,11 +87,12 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Run tests
+      - name: Run rspec
         env:
           RAILS_ENV: test
+          DATABASE_URL: postgresql://postgres:password@localhost:5432/ntsb-alerts_test
           # REDIS_URL: redis://localhost:6379/0
-        run: bin/rails db:test:prepare test test:system
+        run: bin/rails db:test:prepare && bundle exec rspec
 
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
