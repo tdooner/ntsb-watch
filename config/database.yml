@@ -7,7 +7,7 @@ development:
 
 test:
   <<: *default
-  database: ntsb-alerts_test
+  url: <%= ENV.fetch("DATABASE_URL") { "postgresql:///ntsb-alerts_test" } %>
 
 production:
   primary:
