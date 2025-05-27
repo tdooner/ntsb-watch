@@ -1,24 +1,8 @@
-# README
+# ntsb-alert
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
+* `bundle install`
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Trying to decypher what these fields mean
+* `cm_recentReportPublishDate` - Seems to be the Prelim report?
+* `cm_originalPublishedDate` - Seems to be the Final report?

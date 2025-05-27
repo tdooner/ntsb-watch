@@ -42,6 +42,8 @@ gem "thruster", require: false
 # gem "image_processing", "~> 1.2"
 
 # Other application dependencies (keep in alphabetical order):
+gem "dotenv-rails"
+gem "mailgun-ruby"
 gem "rubyzip"
 
 group :development, :test do

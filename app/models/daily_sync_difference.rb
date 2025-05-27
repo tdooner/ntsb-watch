@@ -28,4 +28,10 @@ class DailySyncDifference < ApplicationRecord
       differences: differences,
     )
   end
+
+  def change_completed?
+    _before, after = differences["completion_status"]
+
+    after == "Completed"
+  end
 end
