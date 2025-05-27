@@ -1,6 +1,12 @@
 #!/bin/bash
 set -euo pipefail
 
-export PATH=/usr/local/Cellar/postgresql@16/16.6/bin:$PATH
+if [ -d /usr/local/Cellar/postgresql@16/16.6/bin ]; then
+  export PATH=/usr/local/Cellar/postgresql@16/16.6/bin:$PATH
+fi
+
+if [ -f .env ]; then
+  eval "$(cat .env)"
+fi
 
 exec pg_dump $PRODUCTION_DATABASE_URL -Fc | pv | pg_restore --clean -d ntsb-alerts_development
