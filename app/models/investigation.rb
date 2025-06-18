@@ -22,6 +22,10 @@ class Investigation < ApplicationRecord
   end
 
   def recent_report_publish_date
-    DateTime.parse(contents_raw["cm_recentReportPublishDate"])
+    if contents_raw["cm_originalPublishedDate"]
+      DateTime.parse(contents_raw["cm_originalPublishedDate"])
+    else
+      DateTime.parse(contents_raw["cm_recentReportPublishDate"])
+    end
   end
 end

@@ -1,3 +1,7 @@
-<% finished = @differences.filter(&:change_completed?) %>
+<% finished, unfinished = @differences.partition(&:change_completed?) %>
 
+<h1>Final Reports:</h1>
 <%= render collection: finished.map(&:investigation), partial: "home/investigation" %>
+
+<h1>Other Report Changes:</h1>
+<%= render collection: unfinished.map(&:investigation), partial: "home/investigation" %>

@@ -32,16 +32,25 @@
         <%= first_event["cicttEventSOEGroup"] %>
       <% end %> /
       <% if (injuries = Array(vehicle["cm_injuries"]).first) %>
-        <%= injuries["cm_crew_Fatal"] %> Fatal, <%= injuries["cm_crew_Serious"] %> Serious, <%= injuries["cm_crew_None"] %> None
+        <%= injuries["cm_crew_Fatal"] %> Fatal,
+        <%= injuries["cm_crew_Serious"] %> Serious,
+        <%= injuries["cm_crew_None"] %> None
       <% end %>
       <br>
     <% end %>
   </li>
 
+  <% if json["cm_probableCause"] %>
+    <li>
+      <strong>Probable Cause:</strong>
+      <%= json["cm_probableCause"] %>
+    </li>
+  <% end %>
+
   <% if investigation.most_recent_report_type.present? %>
     <li>
       <strong>Report URL:</strong>
-      <a href="<%= investigation.report_url %>" target="_blank" rel="noopener noreferer">Download <%= investigation.most_recent_report_type %> Report</a> (Dated <%= json["cm_recentReportPublishDate"] %>)
+      <a href="<%= investigation.report_url %>" target="_blank" rel="noopener noreferer">Download <%= investigation.most_recent_report_type %> Report</a> (Dated <%= investigation.recent_report_publish_date %>)
     </li>
   <% end %>
 </ul>
