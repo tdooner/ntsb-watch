@@ -1,6 +1,14 @@
 class DailySyncDifference < ApplicationRecord
   belongs_to :investigation
 
+  def self.ransackable_associations(auth_object = nil)
+    %w[investigation]
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    attribute_names
+  end
+
   def self.create_from_changed_investigation(date, investigation)
     differences = investigation.changes.dup
 
