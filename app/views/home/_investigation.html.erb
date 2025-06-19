@@ -40,7 +40,10 @@
       <%= json["cm_injury_onboard_Serious"] + json.fetch("cm_injury_onground_Serious", 0) %> Serious,
     <% end %>
     <% if json["cm_injury_onboard_Minor"] %>
-      <%= json["cm_injury_onboard_Minor"] + json.fetch("cm_injury_onground_Minor", 0) %> Minor
+      <%= json["cm_injury_onboard_Minor"] + json.fetch("cm_injury_onground_Minor", 0) %> Minor,
+    <% end %>
+    <% if json["cm_onboard_None"] %>
+      <%= json["cm_onboard_None"] %> None
     <% end %>
     <br>
   </li>
