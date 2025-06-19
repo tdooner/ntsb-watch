@@ -30,14 +30,19 @@
       <%= vehicle["registrationNumber"] %> - 
       <% if (first_event = Array(vehicle["cm_events"]).first) %>
         <%= first_event["cicttEventSOEGroup"] %>
-      <% end %> /
-      <% if (injuries = Array(vehicle["cm_injuries"]).first) %>
-        <%= injuries["cm_crew_Fatal"] %> Fatal,
-        <%= injuries["cm_crew_Serious"] %> Serious,
-        <%= injuries["cm_crew_None"] %> None
       <% end %>
-      <br>
+      /
     <% end %>
+    <% if json["cm_injury_onboard_Fatal"] %>
+      <%= json["cm_injury_onboard_Fatal"] + json.fetch("cm_injury_onground_Fatal", 0) %> Fatal,
+    <% end %>
+    <% if json["cm_injury_onboard_Serious"] %>
+      <%= json["cm_injury_onboard_Serious"] + json.fetch("cm_injury_onground_Serious", 0) %> Serious,
+    <% end %>
+    <% if json["cm_injury_onboard_Minor"] %>
+      <%= json["cm_injury_onboard_Minor"] + json.fetch("cm_injury_onground_Minor", 0) %> Minor
+    <% end %>
+    <br>
   </li>
 
   <% if json["cm_probableCause"] %>
