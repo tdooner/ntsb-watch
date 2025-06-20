@@ -50,16 +50,17 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Rspec for testing, included in dev also so the generators will not use test-unit.
+  gem "rspec-rails"
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  gem "rspec-rails"
 end
 
 group :test do
-  gem "rspec-rails"
   gem "factory_bot_rails"
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
