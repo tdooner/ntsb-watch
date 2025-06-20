@@ -1,0 +1,130 @@
+{
+  "cm_city": "San Carlos",
+  "cm_mkey": 104781,
+  "cm_mode": "Aviation",
+  "cm_state": "CA",
+  "airportId": "KSQL",
+  "cm_agency": "NTSB",
+  "cm_closed": true,
+  "cm_launch": "None",
+  "cm_country": "USA",
+  "cm_isStudy": false,
+  "cm_ntsbNum": "WPR22LA123",
+  "airportName": "San Carlos Airport",
+  "cm_Latitude": 37.3071,
+  "cm_vehicles": [
+    {
+      "make": "CESSNA",
+      "model": "172S",
+      "FireType": "None",
+      "gaFlight": true,
+      "cm_events": [
+        {
+          "cm_eventNum": 2,
+          "cm_tier1Num": "551",
+          "cm_tier2Num": "090",
+          "cm_eventCode": "551090",
+          "cm_tier1Name": "Landing-flare/touchdown",
+          "cm_tier2Name": "Abnormal runway contact",
+          "cm_sequenceNum": 1,
+          "cicttEventSOEGroup": "Abnormal Runway Contact",
+          "cicttPhaseSOEGroup": "Landing",
+          "cm_isDefiningEvent": true
+        }
+      ],
+      "airMedical": false,
+      "cm_engines": [
+        {
+          "engineType": "REC",
+          "cm_engineNum": 1
+        }
+      ],
+      "DamageLevel": "Substantial",
+      "cm_findings": [
+        {
+          "cm_inPc": true,
+          "cm_findingNum": 1,
+          "cm_findingCode": "0206304044",
+          "cm_findingText": "Personnel issues - Task performance - Use of equip/info - Aircraft control - Pilot",
+          "cm_findingReportText": "Personnel issues Aircraft control - Pilot"
+        },
+        {
+          "cm_inPc": true,
+          "cm_findingNum": 2,
+          "cm_findingCode": "0106204111",
+          "cm_findingText": "Aircraft - Aircraft oper/perf/capability - Performance/control parameters - Landing flare - Incorrect use/operation",
+          "cm_findingReportText": "Aircraft Landing flare - Incorrect use/operation"
+        },
+        {
+          "cm_inPc": true,
+          "cm_findingNum": 3,
+          "cm_findingCode": "0204152044",
+          "cm_findingText": "Personnel issues - Action/decision - Info processing/decision - Decision making/judgment - Pilot",
+          "cm_findingReportText": "Personnel issues Decision making/judgment - Pilot"
+        }
+      ],
+      "cm_injuries": [
+        {
+          "cm_crew_None": 1,
+          "cm_crew_Fatal": 0,
+          "cm_crew_Minor": 0,
+          "cm_crew_Serious": 0,
+          "cm_passengers_None": 0,
+          "cm_passengers_Fatal": 0,
+          "cm_passengers_Minor": 0,
+          "cm_passengers_Serious": 0,
+          "cm_hasonBoardInjuryMatrix": true
+        }
+      ],
+      "SerialNumber": "172S11469",
+      "amateurBuilt": false,
+      "operatorName": "Pelican Flight Training LLC",
+      "ExplosionType": "None",
+      "cm_vehicleNum": 1,
+      "airMedicalType": null,
+      "numberOfEngines": 1,
+      "registeredOwner": "UND AEROSPACE FOUNDATION",
+      "aircraftCategory": "AIR",
+      "flightServiceType": null,
+      "flightTerminalType": null,
+      "registrationNumber": "N653ND",
+      "revenueSightseeing": false,
+      "secondPilotPresent": null,
+      "flightOperationType": "INST",
+      "flightScheduledType": null,
+      "regulationFlightConductedUnder": "091"
+    }
+  ],
+  "cm_Longitude": -122.1497,
+  "cm_eventDate": "2022-03-06T17:15:00Z",
+  "cm_eventType": "ACC",
+  "cm_reportNum": null,
+  "cm_topicMode": "Aviation",
+  "cm_docketDate": null,
+  "cm_reportDate": null,
+  "cm_reportType": "DirectorBrief",
+  "cm_boardLaunch": false,
+  "cm_hasSafetyRec": false,
+  "cm_onboard_None": 1,
+  "prelimNarrative": null,
+  "cm_highestInjury": "None",
+  "cm_onboard_Total": 1,
+  "cm_probableCause": "The pilot’s improper landing flare which resulted in a bounced landing.",
+  "factualNarrative": null,
+  "analysisNarrative": "The pilot of the airplane reported that, while on short final to land, the airplane experienced a sudden loss of airspeed due to windshear. The pilot continued the approach and reported that he flared too high, and the airplane bounced during landing. He elected to go around, and during the second landing the airplane bounced again. During the third landing attempt, the pilot successfully landed the airplane.  &#x0D;\n&#x0D;\nThe airplane sustained substantial damage to the forward fuselage undercarriage. The pilot reported there were no preaccident mechanical malfunctions or failures with the airplane that would have precluded normal operation.&#x0D;\nThe automated weather observation station located on the airport reported that, about the time of the accident, the wind was from 330° at 12 knots. The pilot reported that during the accident flight, the wind was at 12 knots, gusting to 20 knots. The airplane landed on runway 30. &#x0D;",
+  "cm_HazmatInvolved": false,
+  "cm_boardMeetingDate": null,
+  "cm_completionStatus": "Completed",
+  "cm_fatalInjuryCount": 0,
+  "cm_minorInjuryCount": 0,
+  "accidentSiteCondition": "VMC",
+  "cm_injuryOnboardCount": 0,
+  "cm_seriousInjuryCount": 0,
+  "cm_injury_onboard_Fatal": 0,
+  "cm_injury_onboard_Minor": 0,
+  "cm_mostRecentReportType": "Final",
+  "cm_originalPublishedDate": "2022-09-01T04:00:00Z",
+  "cm_injury_onboard_Serious": 0,
+  "cm_recentReportPublishDate": "2022-03-15T22:29:19.952Z",
+  "cm_docketOriginalPublishDate": "2022-08-22T11:00:00Z"
+}
