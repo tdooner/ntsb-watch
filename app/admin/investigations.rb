@@ -45,7 +45,7 @@ ActiveAdmin.register Investigation do
       row :completion_status
       row :event_date
       row :most_recent_report_type
-      row :contents_raw
+      row(:contents_raw) { |i| pre { JSON.pretty_generate(i.contents_raw) } }
       row :created_at
       row :updated_at
     end

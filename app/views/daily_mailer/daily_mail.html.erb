@@ -1,4 +1,9 @@
-<% finished, unfinished = @differences.partition(&:change_completed?) %>
+<% if @watched_differences.any? %>
+  <h1>🚨 Watched Investigations</h1>
+  <%= render collection: @watched_differences.map(&:investigation), partial: "home/investigation" %>
+<% end %>
+
+<% finished, unfinished = @unwatched_differences.partition(&:change_completed?) %>
 
 <h1>Final Reports:</h1>
 <%= render collection: finished.map(&:investigation), partial: "home/investigation" %>

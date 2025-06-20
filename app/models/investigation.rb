@@ -5,9 +5,7 @@ class Investigation < ApplicationRecord
     Arel.sql("contents_raw::text")
   end
 
-  def self.ransackable_attributes(auth_object = nil)
-    super + %w[contents_raw_text]
-  end
+  def self.ransackable_attributes(auth_object = nil) = super + %w[contents_raw_text]
 
   def self.find_or_initialize_from_json(json)
     find_or_initialize_by(ntsb_mkey: json["cm_mkey"])
