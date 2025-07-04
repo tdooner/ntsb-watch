@@ -1,4 +1,7 @@
+# typed: true
+
 class DailyMailer < ApplicationMailer
+  sig { params(user: User, interval: T::Range[Date]).returns(T.untyped) }
   def daily_mail(user, interval: 24.hours.ago..Time.now)
     differences = DailySyncDifference.where(created_at: interval).includes(:investigation)
 

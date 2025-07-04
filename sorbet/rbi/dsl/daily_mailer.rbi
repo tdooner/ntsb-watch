@@ -7,7 +7,7 @@
 
 class DailyMailer
   class << self
-    sig { params(user: T.untyped, interval: T.untyped).returns(::ActionMailer::MessageDelivery) }
+    sig { params(user: ::User, interval: T::Range[::Date]).returns(::ActionMailer::MessageDelivery) }
     def daily_mail(user, interval: T.unsafe(nil)); end
   end
 end

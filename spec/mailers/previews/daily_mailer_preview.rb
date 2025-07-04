@@ -1,3 +1,5 @@
+# typed: true
+
 class DailyMailerPreview < ActionMailer::Preview
   def daily_mail
     user = User.first || User.new(email: "test@example.com")
