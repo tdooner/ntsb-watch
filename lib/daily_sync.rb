@@ -1,4 +1,9 @@
+# typed: true
+
 class DailySync
+  extend T::Sig
+
+  sig { params(date: Date, logger: Logger).void }
   def initialize(date, logger = $stdout)
     @date = date
     @client = CarolApiClient.new

@@ -1,3 +1,5 @@
+# typed: true
+
 class DailySyncDifference < ApplicationRecord
   belongs_to :investigation
 
@@ -9,6 +11,7 @@ class DailySyncDifference < ApplicationRecord
     attribute_names
   end
 
+  sig { params(date: Date, investigation: Investigation).returns(T.nilable(DailySyncDifference)) }
   def self.create_from_changed_investigation(date, investigation)
     differences = investigation.changes.dup
 
