@@ -8,3 +8,12 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+.injuries--fatal {
+  font-weight: bold;
+  color: #9b0e0e;
+}
+.injuries--serious {
+  font-weight: bold;
+  color: #e6920e;
+}

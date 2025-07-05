@@ -33,18 +33,18 @@
       <% end %>
       /
     <% end %>
-    <% if json["cm_injury_onboard_Fatal"] %>
-      <%= json["cm_injury_onboard_Fatal"] + json.fetch("cm_injury_onground_Fatal", 0) %> Fatal,
-    <% end %>
-    <% if json["cm_injury_onboard_Serious"] %>
-      <%= json["cm_injury_onboard_Serious"] + json.fetch("cm_injury_onground_Serious", 0) %> Serious,
-    <% end %>
-    <% if json["cm_injury_onboard_Minor"] %>
-      <%= json["cm_injury_onboard_Minor"] + json.fetch("cm_injury_onground_Minor", 0) %> Minor,
-    <% end %>
-    <% if json["cm_onboard_None"] %>
-      <%= json["cm_onboard_None"] %> None
-    <% end %>
+    <%
+      injuries_fatal = json.fetch("cm_injury_onboard_Fatal", 0) + json.fetch("cm_injury_onground_Fatal", 0)
+      injuries_serious = json.fetch("cm_injury_onboard_Serious", 0) + json.fetch("cm_injury_onground_Serious", 0)
+      injuries_minor = json.fetch("cm_injury_onboard_Minor", 0) + json.fetch("cm_injury_onground_Minor", 0)
+      injuries_none = json.fetch("cm_onboard_None", 0)
+    %>
+    <%= safe_join([
+      (content_tag(:span, "#{injuries_fatal} Fatal", class: "injuries--fatal") if injuries_fatal > 0),
+      (content_tag(:span, "#{injuries_serious} Serious", class: "injuries--serious") if injuries_serious > 0),
+      (content_tag(:span, "#{injuries_minor} Minor", class: "injuries--minor") if injuries_minor > 0),
+      (content_tag(:span, "#{injuries_none} None", class: "injuries--none") if injuries_none > 0),
+    ].compact, ", ") %>
     <br>
   </li>
 
