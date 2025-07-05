@@ -1,6 +1,9 @@
 <% if @watched_differences.any? %>
   <h1>🚨 Watched Investigations</h1>
-  <%= render collection: @watched_differences.map(&:investigation), partial: "home/investigation" %>
+  <% @watched_differences.each do |difference| %>
+    <% watch_condition = @watched_investigation_to_condition[difference.investigation] %>
+    <%= render "home/investigation", investigation: difference.investigation, watch_condition: watch_condition %>
+  <% end %>
 <% end %>
 
 <% finished, unfinished = @unwatched_differences.partition(&:change_completed?) %>

@@ -1,4 +1,5 @@
 <% json = investigation.contents_raw %>
+<% watch_condition ||= nil %>
 <% vehicles = Array(json["cm_vehicles"]) %>
 <%
   title = vehicles.map { |v| v["registrationNumber"] }.join(", ")
@@ -59,6 +60,20 @@
     <li>
       <strong>Report URL:</strong>
       <a href="<%= investigation.report_url %>" target="_blank" rel="noopener noreferer">Download <%= investigation.most_recent_report_type %> Report</a> (Dated <%= investigation.recent_report_publish_date %>)
+    </li>
+  <% end %>
+
+  <% if watch_condition %>
+    <li>
+      🚨 Watch Condition: <%= watch_condition.condition_key %> = <%= watch_condition.condition_value %>
+      <% if watch_condition.external_link %>
+        <br>
+        <% if watch_condition.external_link.start_with?("http") %>
+          <a href="<%= watch_condition.external_link %>"><%= watch_condition.external_link %></a>
+        <% else %>
+          <%= watch_condition.external_link %>
+        <% end %>
+      <% end %>
     </li>
   <% end %>
 </ul>
