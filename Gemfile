@@ -44,7 +44,7 @@ gem "thruster", require: false
 # Sorbet / Type-checking stuff
 gem "sorbet", group: :development
 gem "sorbet-runtime"
-gem "tapioca", "~> 0.17.6", require: false, group: [:development, :test]
+gem "tapioca", "~> 0.17.7", require: false, group: [:development, :test]
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
