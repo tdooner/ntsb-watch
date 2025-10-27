@@ -73,7 +73,7 @@ group :test do
 end
 
 # Other application dependencies (keep in alphabetical order):
-gem "activeadmin", "= 4.0.0.beta15"
+gem "activeadmin", "4.0.0.beta17"
 gem "activeadmin_assets", "~> 1.0"
 gem "devise", "~> 4.9"
 gem "dotenv-rails"
